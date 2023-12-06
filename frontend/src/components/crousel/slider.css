@@ -1,0 +1,107 @@
+ .img-container{
+ position: relative;
+} 
+
+.img-list{
+ display: flex;
+}
+
+.img-item{
+ min-width: 100%;
+}
+
+.img-item img{
+    width: 100%;
+  height: 105vh;
+}
+
+.image-btn-container{
+  position: absolute;
+  top: 1%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.btn-slider{
+  background-color: transparent;
+  border: 2px solid transparent;
+  padding: 100px 10px;
+  font-size: 24px;
+}
+
+.btn-slider:focus{
+  background-color: transparent;
+  border: 2px solid #000;
+  padding: 100px 10px;
+  font-size: 24px;
+  border-radius: 4px;
+ 
+}
+
+.card-con{
+
+margin: 10px 0px;
+color: #000;
+  position: absolute;
+  top: 57%;
+
+}
+.card-box-items a {
+  color: #007185;
+  text-decoration: none;
+  font-size: 14px;
+  padding-left: 20px;
+}
+
+.card-box-items  {
+  padding: 10px 6px;
+}
+
+
+.card-box{
+  border: none;
+  border-radius: 0px;
+  background-color: #fff;
+  height: 100%;
+}
+.box-head{
+  padding: 20px 0px 0px 25px;
+  font-weight: 600;
+  font-size: 21px;
+  margin: 0;
+}
+.second-row{
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  margin: 5px;
+  
+
+}
+
+.second-row p{
+padding: 0;
+margin: 0;
+width: 100%;
+font-size: 12px;
+}
+
+.second-row img{
+ height: 120px;
+ width: 150px;
+ padding: 10px 15px;
+}
+
+.second-row .IMAGESLAST{
+   width: 270px;
+   height: 280px;
+   margin: 0;
+   padding: 0;
+ }
+
+ .login-card{
+  padding: 10px 20px;
+  border-radius: 0px;
+  border: none;
+ }

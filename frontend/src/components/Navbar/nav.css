@@ -1,0 +1,129 @@
+.navbar{
+    height: 43px;
+    background-color: rgb(45,47,61);
+    margin: 0;
+    padding: 0;
+  display: flex;
+    
+}
+
+.left-nav ul{
+   display: flex;
+   list-style: none;
+   color: white;
+   margin: 0;
+   padding: 0;
+   height: 43px;
+   align-items: center;
+   
+   
+}
+
+.left-nav ul li{
+    font-size: 14px;
+    padding: 0px 9px;
+    font-weight: 600;
+ }
+
+ .left-nav ul li:hover{
+    border: 1px solid white;
+    display: flex;
+    height: 40px;
+    align-items: center;
+ }
+
+ .right-nav:hover{
+    border: 1px solid white;
+    display: flex;
+    height: 43px;
+    align-items: center;
+ }
+
+
+
+ .sidebar{
+    background-color: #fff;
+    width: 27%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    overflow-y: scroll;
+ 
+ }
+
+ @media(max-width:950px){
+	
+	
+	.hide{
+		display: none;
+	}
+  
+  
+}
+@media(max-width:950px){
+	
+	
+   .sidebar{
+      background-color: #fff;
+      width: 55%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      overflow-y: scroll;
+   
+   }
+   .closeNAv{
+    font-size: 50pxk;
+      
+   }
+ 
+}
+ .closeNAv{
+    position: absolute;
+    top: -131%;
+    bottom: 100%;
+    left: 28%;
+   color: gray;
+    
+ }
+ 
+ .singin{
+    color: #fff;
+    background-color: rgb(45,47,61);
+    height: 100px;
+    display: flex;
+    align-items: center;
+    
+   
+ }
+ 
+
+ .showCatData{
+   display: flex;
+   font-size: 18px;
+   padding: 0px 30px;
+   width: 100%;
+   justify-content: space-between;
+   align-items: center;
+   
+ }
+ .showCatData:hover{
+  background-color: lightgray;
+
+   
+ }
+
+ .showCatData p{
+  
+   margin-top: 10px;
+   color: gray;
+ }
+
+ .showCatData p:hover{
+ 
+   color: black;
+ }

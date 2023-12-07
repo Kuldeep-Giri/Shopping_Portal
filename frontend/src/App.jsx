@@ -19,6 +19,7 @@ import Cart from './pages/cart/Cart'
 import Search from './pages/Search/Search'
 import AddressList from './pages/address/AddressList'
 import MakePyment from './pages/address/MakePyment'
+import Order from './pages/orders/Order'
 const App = () => {
   const [auth] = useAuth()
   const token = auth.token
@@ -44,6 +45,7 @@ autoClose={200}
    <Route path='/sin-product/:id' element={<SinProduct/>}/>
    <Route path='/cart' element={<Cart/>}/>
    <Route path='/address-list' element={<AddressList/>}/>
+   <Route path='/order-list' element={<Order/>}/>
    <Route path='/makepayment' element={<MakePyment/>}/>
 
 

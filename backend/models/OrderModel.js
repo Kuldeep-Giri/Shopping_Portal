@@ -23,9 +23,12 @@ const OrderSchema = new mongoose.Schema({
         type:mongoose.ObjectId,
         ref:"addresss"
     },
-    transaction_id: {type: String,
+    order_id: {type: String,
         default: uuidv4,
         unique: true,
+    },
+
+    transaction_id: {type: String
     }
 
       

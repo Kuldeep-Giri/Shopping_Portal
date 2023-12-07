@@ -250,3 +250,8 @@ font-family: Arial, sans-serif;
 .modalform label{
   text-transform: capitalize;
 }
+
+.a-box{
+  background-color: rgba(172, 170, 170, 0.171)!important;
+  border-bottom: 1px solid rgba(134, 133, 133, 0.171);
+}

@@ -24,6 +24,7 @@ const AddressList = () => {
            })
          }
        })
+       localStorage.setItem("totalPrice",total)
         return total;
      } catch (error) {
        console.log(error)

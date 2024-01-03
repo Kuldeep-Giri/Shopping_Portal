@@ -67,7 +67,7 @@ const Header = () => {
             type: "SET_SEARCH_TERM",
             payload: e.target.value,
           })
-        }/>
+        } />
             </div>
             <div className="nav-right">
               <button type="submit" className=' fs-4 text-dark' ><BsSearch/></button>
@@ -81,7 +81,7 @@ const Header = () => {
           
           {
             auth?.user ? <NavLink>
-            <NavDropdown title={`Hello,${auth?.user?.name}`} className='text-white'>
+            <NavDropdown title={`Hello,${auth?.user?.name}`} className='text-white ' >
               <NavDropdown.Item ><NavLink to='/login' className="text-dark" onClick={handleLogOut}>SignOut</NavLink></NavDropdown.Item>
             </NavDropdown>
             </NavLink> :
@@ -100,7 +100,7 @@ const Header = () => {
   </div>
 </header>
 
- <div className='container-fluid show'>
+ <div className='container-fluid shows'>
  
   <div className="secondHeader ">
     <div className="uper d-flex justify-content-between ">

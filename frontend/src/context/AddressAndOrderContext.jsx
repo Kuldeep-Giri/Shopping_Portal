@@ -1,40 +1,46 @@
 import axios from "axios";
 import { createContext,useState,useEffect,useContext, useReducer } from "react";
 import { productReducer } from "../reducers/Product";
+import { orderReducer } from "../reducers/OrdersAddress";
 
 
 
 const AppContext = createContext()
 
 
-const ProductProvider = ({children})=>{
+const OrderProvider = ({children})=>{
    const initialState = {
-    products:[],
-    menFashion:[],
-    SearchTerm:'',
-    SearchItem:[],
-    sorting_valye:"lowest",
+    orders:[],
     loading:false,
     error:null
    }
 
-  const [state,dispatch] = useReducer(productReducer,initialState)
+  const [state,dispatch] = useReducer(orderReducer,initialState)
   
 
-    const getproducts = async()=>{
+    const getOrders = async()=>{
+     
         try {
-          dispatch({type:"FETCH_PRODUCT_REQ"})
-           const res = await axios.get("http://localhost:8000/api/product/all")
-           const products = await res.data;
-           dispatch({ type: "FETCH_PRODUCTS_SUCCESS", payload: products });
+          const getdata = localStorage.getItem("auth")
+          if(getdata){
+            var sellerData = JSON.parse(getdata)
+          }
+          const token = sellerData.token 
+          dispatch({type:"FETCH_ORDERS_REQ"})
+           const res = await axios.get("http://localhost:8000/api/order/get-order",{
+            headers:{Authorization:token}
+           })
+           const orders = await res.data;
+           dispatch({ type: "FETCH_ORDERS_SUCCESS", payload: orders });
+           
         } catch (error) {
           console.log(error)
-          dispatch({ type: "FETCH_PRODUCTS_FAILURE", payload: 'Error fetching products' });
+          dispatch({ type: "FETCH_ORDERS_FAILURE", payload: 'Error fetching ORDERS' });
         }
       }
       
       useEffect(() => {
-        getproducts()
+        getOrders()
       }, [])
 
    
@@ -46,7 +52,7 @@ const ProductProvider = ({children})=>{
     )
 }
 
-const useProduct = ()=> useContext(AppContext)
+const UseOrders = ()=> useContext(AppContext)
 
 
-export {ProductProvider,useProduct}
+export {OrderProvider,UseOrders}

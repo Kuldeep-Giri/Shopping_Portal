@@ -6,11 +6,13 @@ import { useAuth } from '../../context/authContext'
 import { toast } from 'react-toastify'
 import Loading from '../../components/Loading'
 import { useCart } from '../../context/CartContext'
+import { UseOrders } from '../../context/AddressAndOrderContext'
 const Login = () => {
 
     const [auth,setAuth] =useAuth()
-    const {getItem} = useCart
+    const {getItem} = useCart()
     const [loding,setLoading] = useState(false)
+    const {state} = UseOrders()
 
     const navigate = useNavigate()
     const {register,handleSubmit,formState:{errors}} = useForm()
@@ -30,9 +32,11 @@ const Login = () => {
          }
          else{
             navigate('/')
+            window.location.reload();
          }
          getItem();
          setLoading(false);
+        
        
     } catch (error) {
         toast.error("Email/passowrd invalid")

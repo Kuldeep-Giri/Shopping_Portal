@@ -8,8 +8,16 @@ import { useAuth } from '../../context/authContext';
 
 const Nav = () => {
     const [toggel,setToggel] = useState(false)
-    const {categories} = useCatAndCarrier()  
+    const {categories} = useCatAndCarrier()
+    const {category} = useCatAndCarrier()
    const [auth] = useAuth()
+   
+   const handleToggal = () =>{
+
+    setToggel(true)
+    category()
+   }
+  
     return (
     <>
     <div className="container-fluid navbar ">
@@ -64,7 +72,7 @@ const Nav = () => {
   categories.map(({category_name,_id})=>{
     return (
       <div className="showCatData" key={_id}>
-      <NavLink onClick={()=>setToggel(false)} className="text-dark" to={`/cat-product?category_id=${_id}`}>{category_name}</NavLink>
+      <NavLink onClick={handleToggal} className="text-dark" to={`/cat-product?category_id=${_id}`}>{category_name}</NavLink>
       <p><FaGreaterThan/></p>
       </div>
     )

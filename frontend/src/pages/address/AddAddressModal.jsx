@@ -5,7 +5,7 @@ import {useForm} from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/authContext';
 import axios from 'axios';
-const AddAddressModal = ({setShowModal}) => {
+const AddAddressModal = ({setShowModal,getAddressList}) => {
     const [auth,setAuth] = useAuth()
   const token  = auth.token
     const navigate = useNavigate()
@@ -15,6 +15,7 @@ const AddAddressModal = ({setShowModal}) => {
         const config =   axios.defaults.headers.common["Authorization"] = token;
         const res = await axios.post('http://localhost:8000/api/address/add-address',data,config)
         setShowModal(false)
+        getAddressList();
     } catch (error) {
         console.log(error)
         

@@ -255,3 +255,44 @@ font-family: Arial, sans-serif;
   background-color: rgba(172, 170, 170, 0.171)!important;
   border-bottom: 1px solid rgba(134, 133, 133, 0.171);
 }
+
+
+.cont{
+  position: relative;
+  display: inline-block;
+}
+
+.conta{
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.cont:hover .conta {
+  display: block;
+}
+
+.a-box p{
+font-size: 12px;
+margin-top: 15px;
+
+}
+
+
+.tractOrderBtn{
+  background-color:  rgba(134, 133, 133, 0.171);
+  font-size: 16 px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 4px 20px;
+  border-radius: 5px;
+  
+}

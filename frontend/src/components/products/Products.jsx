@@ -120,7 +120,7 @@ const Products = () => {
                                                 })
                                              }
                                              <div className="title text-center mt-1">
-                                   k             <h5>{product_title.substring(0, 30)}</h5>
+                                              <h5>{product_title.substring(0, 30)}</h5>
                                              </div>
                                              <div className="price d-flex justify-content-start mt-1">
                                                 <h5 className='mx-3'>₹{discountPrice}</h5>
@@ -147,54 +147,54 @@ const Products = () => {
                               })
                            }
                         </> : <>
-                           {
-                              filterPrice.map((p) => {
-                                 const { product_title, price, discount_percents, images, _id } = p;
-                                 const discountPrice = Math.round((price) - (price * discount_percents) / 100)
-                                 return (
+                        {
+    filterPrice.map((p)=>{
+      const { product_title, price, discount_percents, images, _id } = p;
+      const discountPrice = Math.round((price) - (price * discount_percents) / 100)
+      return (
 
 
-                                    <div className=" col-sm-3 col-6 mt-2" key={_id}>
-                                       <div className="card p-2" style={{ height: "55vh", borderRadius: "0px" }}>
-                                          <NavLink className='text-dark' to={`/sin-product/${_id}`}>
-                                             {
-                                                images.filter((ele, index) => index == 0).map(({ photo, id }) => {
-                                                   return (
+         <div className=" col-sm-3 col-6 mt-2" key={_id}>
+            <div className="card p-2" style={{ height: "55vh", borderRadius: "0px" }}>
+               <NavLink className='text-dark' to={`/sin-product/${_id}`}>
+                  {
+                     images.filter((ele, index) => index == 0).map(({ photo, id }) => {
+                        return (
 
-                                                      <div className="images" key={_id}>
-                                                         <img src={`http://localhost:8000/images/${photo}`} style={{ height: "30vh" }} alt="" className='img-fluid' />
-                                                      </div>
+                           <div className="images" key={_id}>
+                              <img src={`http://localhost:8000/images/${photo}`} style={{ height: "30vh" }} alt="" className='img-fluid' />
+                           </div>
 
-                                                   )
-                                                })
-                                             }
-                                             <div className="title text-center mt-1">
-                                                <h5>{product_title.substring(0, 30)}</h5>
-                                             </div>
-                                             <div className="price d-flex justify-content-center mt-1">
-                                                <h5 className='mx-3'>{discountPrice}</h5>
-                                                <h5>{discount_percents}%{price}</h5>
-                                             </div>
-                                          </NavLink>
-                                          <div className="btnt text-center mt-2">
+                        )
+                     })
+                  }
+                  <div className="title text-center mt-1">
+                   <h5>{product_title.substring(0, 30)}</h5>
+                  </div>
+                  <div className="price d-flex justify-content-start mt-1">
+                     <h5 className='mx-3'>₹{discountPrice}</h5>
+                    <> <h5 className='text-danger'>{discount_percents}%</h5>M.R.P <del className='text-secondary'>₹{price}</del></>
+                  </div>
+               </NavLink>
+               <div className="btnt text-center mt-2">
 
-                                             {
-                                                auth?.token ? <button className="text-center w-100 SignUpBtn" style={{ borderRadius: '50px' }}
-                                                   onClick={() => postcart(_id)}
-                                                >Add to Cart</button> :
-                                                   <button className="text-center w-100 SignUpBtn" style={{ borderRadius: '50px' }}
+                  {
+                     auth?.token ? <button className="text-center w-100 SignUpBtn" style={{ borderRadius: '50px' }}
+                        onClick={() => postcart(_id)}
+                     >Add to Cart</button> :
+                        <button className="text-center w-100 SignUpBtn" style={{ borderRadius: '50px' }}
 
-                                                   ><NavLink onClick={() => toast.success("Please login")} to='/login' className=" text-dark">Add to Cart</NavLink></button>
-                                             }
-                                             <br />
+                        ><NavLink onClick={() => toast.success("Please login")} to='/login' className=" text-dark">Add to Cart</NavLink></button>
+                  }
+                  <br />
 
-                                          </div>
-                                       </div>
-                                    </div>
+               </div>
+            </div>
+         </div>
 
-                                 )
-                              })
-                           }
+      )
+   })
+}
                         </>
                      }
                   </div>

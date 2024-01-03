@@ -11,8 +11,10 @@ import { ImageProvider } from './context/imageContext.jsx'
 import { CartProvider } from './context/CartContext.jsx'
 import { LoadingProvider } from './context/LoadingContext.jsx'
 import { SearchProvider } from './context/SearchContext.jsx'
+import { OrderProvider } from './context/AddressAndOrderContext.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <LoadingProvider>
+<OrderProvider>
 <SearchProvider>
 <AuthProvider>
     <CartProvider>
@@ -30,5 +32,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </CartProvider>
   </AuthProvider>
 </SearchProvider>
+</OrderProvider>
   </LoadingProvider>,
 )

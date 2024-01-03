@@ -57,25 +57,36 @@ const SearchProduct = async(req,res)=>{
 const findWithQuery = async(req,res)=>{
     try {
 
-    const category_id = req.query.category_id;
-
-    const result = await Product.aggregate([
-      {
-        $match: {
-            category_id: category_id,
+      const { category_id } = req.query;
+      const aggregationPipeline = [
+        {
+          $match: {
+            category_id: new mongoose.Types.ObjectId(category_id)
+          }
         },
-      },
-      {
-        $lookup:{
-            from:"images",
-            localField:"_id",
-            foreignField:"product_id",
-            as:"images"
-
-      }
-      },
-    ]);
- res.json(result)
+        {
+          $lookup: {
+            from: 'categories',
+            localField: 'category_id',
+            foreignField: '_id',
+            as: 'category'
+          }
+        },
+        {
+          $lookup: {
+            from: 'images',
+            localField: '_id',
+            foreignField: 'product_id',
+            as: 'images'
+          }
+        },
+        {
+          $unwind: '$category'
+        }
+        // Add more stages as needed
+      ];
+       const result = await Product.aggregate(aggregationPipeline);
+       res.status(200).send(result)
     } catch (error) {
         console.log(error)
     }
@@ -126,7 +137,7 @@ const findWithQuery = async(req,res)=>{
     } catch (error) {
         console.log(error)
     }
- }
+ } 
 
  
 

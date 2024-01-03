@@ -5,11 +5,13 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import Loading from "../../components/Loading"
 import axios from 'axios'
 import { toast } from 'react-toastify';
+import MessageBox from '../../components/MessageBox';
 
 const MakePyment = () => {
     const [auth] = useAuth();
     const [add,setAdd] = useState()
     const {cartItem} = useCart()
+    const [showModal,setShowModal] = useState(false)
     const navigate = useNavigate();
     const [loading,setLoading] = useState(false)
     const [transaction_id] = useState(Math.random().toString(36).substring(2, 20)); 
@@ -70,8 +72,7 @@ const dis = obj1[index1] === undefined ?"" : obj1[index1]
        draggable: true,
        progress: undefined,
        theme: "light",})
-       navigate("/")
-       
+       setShowModal(true)
        
     } catch (error) {
          console.log(error)
@@ -87,13 +88,17 @@ const dis = obj1[index1] === undefined ?"" : obj1[index1]
   return (
     <>
     <div className="container  d-flex justify-content-center align-items-center" style={{width:"30%",height:"75vh"}}>
-   {loading && <Loading/> }
+   {loading && <Loading/>  }
+   
     <div className="checkout cart ">
                  <div className="check text-center">
                    <h5 className='  mb-3'>Checkout | Payment</h5>
                   
                    <h3 className='  mb-3'>{price}</h3>
                    <button className="p-2 text-dark w-100 SignUpBtn" onClick={ConfirmPayment} style={{borderRadius:'5px'}}>Confirm Payment</button> <br />
+    {
+      showModal === true ? <MessageBox transaction_id={transaction_id}/> : ""
+    }
 
                    <button className="p-2 mt-2 bg-danger text-dark w-100 SignUpBtn  " onClick={paymentDecline} style={{borderRadius:'5px'}}>Decline Payment</button> <br />
 

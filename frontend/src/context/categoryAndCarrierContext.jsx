@@ -8,6 +8,7 @@ const AppContext = createContext()
 const CatAndCarirProvider = ({children})=>{
     const [categories,setCategories] = useState([])
     const [carrier,setCarrier] = useState([])
+    const [category,setCategory] = useState([])
    
 
     const getCategory = async()=>{
@@ -38,9 +39,26 @@ const CatAndCarirProvider = ({children})=>{
       useEffect(() => {
         getCarriers()
       }, [])
-
+      const getCat = async()=>{
+        try {
+         const {data} = await axios.get(`http://localhost:8000/api/product/query/${window.location.search}`)
+         setCategory(data)
+           
+        } catch (error) {
+         
+        }
+       }
+       
+      
+         useEffect(()=>{
+          getCat()
+         },[])
+       
+      
+     
+    
     return(
-        <AppContext.Provider value={{categories,carrier}}>
+        <AppContext.Provider value={{categories,carrier,category}}>
             {children}
         </AppContext.Provider>
     )

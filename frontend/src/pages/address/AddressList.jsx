@@ -96,7 +96,7 @@ const handleAddress = (id)=>{
     {
         showModal == false ?<NavLink onClick={()=>setShowModal(true)} className="text-primary" >+Add Address</NavLink>
         :
-        <AddAddressModal setShowModal={setShowModal}/>
+        <AddAddressModal setShowModal={setShowModal} getAddressList={getAddressList}/>
     }
     
     

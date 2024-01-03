@@ -44,6 +44,14 @@ const getOrder = async(req,res)=>{
                foreignField: '_id',
                as: 'orderProducts',
             }
+         },
+         {
+            $lookup:{
+               from: 'images',
+               localField: 'product_id',
+               foreignField: 'product_id',
+               as: 'image',
+            }
          }
        ];
 

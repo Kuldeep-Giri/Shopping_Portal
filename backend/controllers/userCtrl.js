@@ -60,9 +60,7 @@ const Login = async(req,res)=>{
            })
         }
  
-        const token = await jwt.sign({_id:user._id},process.env.SECRET_KEY,{
-           expiresIn:"7d"
-        })
+        const token = await jwt.sign({_id:user._id},process.env.SECRET_KEY)
  
         res.status(201).json({
            success:true,

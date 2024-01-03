@@ -27,8 +27,17 @@ const OrderSchema = new mongoose.Schema({
         default: uuidv4,
         unique: true,
     },
+    status:{
+         type:String,
+         default:"Not process",
+         enum:["Not process", "processing", "shipped","delivered","cancel"]
+    },
 
     transaction_id: {type: String
+    },
+    date:{
+        type:Date,
+        default:Date.now
     }
 
       
